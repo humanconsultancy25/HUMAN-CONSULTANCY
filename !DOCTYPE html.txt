@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Human Consultancy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: #ECF0F1;
+      color: #34495E;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #2C3E50;
+      color: #fff;
+      padding: 24px 0 16px 0;
+      text-align: center;
+      position: relative;
+    }
+    .logo {
+      width: 120px;
+      margin-bottom: 12px;
+    }
+    nav {
+      margin: 0 0 12px 0;
+      text-align: center;
+    }
+    nav a {
+      color: #18BC9C;
+      text-decoration: none;
+      margin: 0 16px;
+      font-weight: bold;
+      font-size: 1.05em;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    main {
+      max-width: 900px;
+      margin: 32px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 24px #bbb2;
+      padding: 34px 30px;
+    }
+    h1, h2 {
+      color: #2C3E50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: #ECF0F1;
+      color: #34495E;
+    }
+    th, td {
+      padding: 12px 8px;
+      border-bottom: 1px solid #d7dbdd;
+      text-align: left;
+    }
+    th {
+      background: #2C3E50;
+      color: #fff;
+    }
+    tr:hover {
+      background: #D0ECE7;
+    }
+    .btn {
+      background: #18BC9C;
+      color: #fff;
+      border: none;
+      padding: 9px 18px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 7px;
+      transition: background 0.25s;
+    }
+    .btn:hover {
+      background: #148F77;
+    }
+    .service-list {
+      list-style: disc inside;
+      margin: 20px 0 20px 17px;
+    }
+    form label {
+      display:block;
+      margin: 13px 0 6px 0;
+      font-weight: 600;
+    }
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #bdc3c7;
+      border-radius: 5px;
+      margin-bottom: 16px;
+      font-size:1em;
+    }
+    .footer {
+      background: #2C3E50;
+      color: #fff;
+      text-align: center;
+      padding: 16px 0;
+      margin-top: 36px;
+      font-size: 0.98em;
+    }
+    @media (max-width: 650px) {
+      main {padding: 16px 4vw;}
+      th, td {padding: 9px 4px;}
+    }
+  </style>
+  <script>
+    // Basic SPA navigation
+    function showPage(id) {
+      document.querySelectorAll('main > section').forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+    window.onload = function() {
+      showPage('home');
+      document.querySelectorAll('nav a').forEach(link =>
+        link.onclick = function() {
+          showPage(this.dataset.page);
+          return false;
+        }
+      );
+    }
+    // Simple form submission (no backend included)
+    function sendApplication(e) {
+      e.preventDefault();
+      alert('Application submitted! We will contact you soon.');
+      e.target.reset();
+    }
+    function sendContact(e) {
+      e.preventDefault();
+      alert('Message sent! Our team will reach you back shortly.');
+      e.target.reset();
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <!-- Add your logo file path below, e.g., src="logo.png" -->
+    <img src="YOUR_LOGO_FILENAME.png" alt="Human Consultancy Logo" class="logo">
+    <h1>Human Consultancy</h1>
+    <nav>
+      <a href="#" data-page="home">Home</a>
+      <a href="#" data-page="jobs">Jobs</a>
+      <a href="#" data-page="services">Services</a>
+      <a href="#" data-page="contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Home -->
+    <section id="home">
+      <h2>Welcome</h2>
+      <p>
+        <strong>Welcome to Human Consultancy</strong> — empowering your talent and workforce needs.<br>
+        We connect top talent with leading organizations, offering trusted HR and recruitment solutions.
+      </p>
+    </section>
+
+    <!-- Jobs -->
+    <section id="jobs" style="display:none">
+      <h2>Current Openings</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>Department</th>
+            <th>Location</th>
+            <th>Apply</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>HR Specialist</td>
+            <td>HR</td>
+            <td>Remote</td>
+            <td><button class="btn" onclick="showPage('apply')">Apply Now</button></td>
+          </tr>
+          <tr>
+            <td>Recruitment Lead</td>
+            <td>Operations</td>
+            <td>Bangalore</td>
+            <td><button class="btn" onclick="showPage('apply')">Apply Now</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Application Form -->
+    <section id="apply" style="display:none">
+      <h2>Apply for a Position</h2>
+      <form onsubmit="sendApplication(event)">
+        <label for="aposition">Position</label>
+        <select id="aposition" name="aposition" required>
+          <option value="HR Specialist">HR Specialist</option>
+          <option value="Recruitment Lead">Recruitment Lead</option>
+        </select>
+        <label for="aname">Name</label>
+        <input type="text" id="aname" name="aname" required>
+        <label for="aemail">Email</label>
+        <input type="email" id="aemail" name="aemail" required>
+        <label for="aphone">Phone</label>
+        <input type="tel" id="aphone" name="aphone" required>
+        <label for="acv">Upload CV</label>
+        <input type="file" id="acv" name="acv" accept=".pdf,.doc,.docx" required>
+        <label for="amsg">Message</label>
+        <textarea id="amsg" name="amsg" rows="4" placeholder="Optional"></textarea>
+        <button class="btn" type="submit">Submit Application</button>
+      </form>
+      <button class="btn" style="margin-top:10px" onclick="showPage('jobs')">Back to Jobs</button>
+    </section>
+
+    <!-- Services -->
+    <section id="services" style="display:none">
+      <h2>Our Services</h2>
+      <ul class="service-list">
+        <li>Recruitment process outsourcing</li>
+        <li>Payroll management</li>
+        <li>Employee training</li>
+        <li>HR consulting</li>
+      </ul>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" style="display:none">
+      <h2>Contact Us</h2>
+      <form onsubmit="sendContact(event)">
+        <label for="cname">Name</label>
+        <input type="text" id="cname" name="cname" required>
+        <label for="cemail">Email</label>
+        <input type="email" id="cemail" name="cemail" required>
+        <label for="cmsg">Message</label>
+        <textarea id="cmsg" name="cmsg" rows="4" required></textarea>
+        <button class="btn" type="submit">Send Message</button>
+      </form>
+      <div style="margin-top:18px;">
+        <p><strong>Email:</strong> admin@humanconsultancy.in</p>
+        <p><strong>Phone:</strong> +91 9097312714</p>
+        <p><strong>Address:</strong> 123 Consultancy Street, Bangalore</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer">
+    &copy; 2025 Human Consultancy. All rights reserved.
+  </div>
+</body>
+</html>
