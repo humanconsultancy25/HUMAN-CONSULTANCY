@@ -1,0 +1,44 @@
+# Human Consultancy – Official Website
+
+Welcome to the official repository for *Human Consultancy* – a modern, professional website for your consultancy services.
+
+## 👥 About
+
+Human Consultancy connects top talent with businesses, offering recruitment, HR outsourcing, payroll, and employee training services. This site lets you:
+- Showcase your services
+- List job openings
+- Accept applications online from candidates and clients
+
+## 🌐 Features
+
+- *Responsive design* – mobile friendly
+- *Home, **Jobs, **Services, **Contact* pages
+- Live job postings with "Apply Now" functionality
+- Online application form (name, email, phone, CV upload, message)
+- Easily customizable content and brand
+
+## 📁 Files
+
+- index.html – Main website file
+- logo.png – Company logo (replace with your own)
+- README.md – This help/instruction file
+
+## 🚀 Quick Start
+
+1. *Download or clone* this repository.
+2. Replace logo.png with your actual company logo (using the same name).
+3. Edit index.html to customize text, job listings, or contact details.
+4. *Deploy with GitHub Pages:*
+   - Go to repository Settings > Pages.
+   - Set the source to the main branch (and /root directory).
+   - Your website will go live at: https://yourusername.github.io/human-consultancy
+
+## 🙌 Customization
+
+- Change job listings in the Jobs section of index.html.
+- Update services, contact info, or add more content as needed.
+- For advanced feature requests (login, admin dashboard), contact the project maintainer.
+
+## 📞 Contact
+
+Questions or need help? Contact: *admin@humanconsultancy.in*
